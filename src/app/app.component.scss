@@ -1,0 +1,25 @@
+
+$table-head-bkg: #FAFAFA;
+$table-border-color: darken($table-head-bkg, 20%);
+$table-shadow-color: darken($table-border-color, 20%);
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    text-align: center;
+    max-width: 80%;
+    border: 0px ;
+    box-shadow: 0px 1px 2px 0px $table-shadow-color;
+    th, tr, td {
+        border: none;
+    }
+    thead {
+        background: $table-head-bkg;
+    }
+    tr {
+        border: 0.5px solid $table-border-color;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Application</th>
+    <th>Description</th>
+    <th>ENV</th>
+    <th>URL</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let service of servicesStatus$ | async">
+    <tr>
+      <th [rowSpan]="infraSize(service)">{{ service.application }}</th>
+      <td [rowSpan]="infraSize(service)">{{ service.description }}</td>
+    </tr>
+    <tr *ngFor="let infra of service.infras" [ngClass]="{'table-danger': infra.status != 'UP', 'table-success': infra.status == 'UP'}">
+      <td>{{infra.name}}</td>
+      <td>
+        <a [href]="infra.url">{{infra.url}}</a>
+      </td>
+      <td>{{infra.status}}</td>
+    </tr>
+</ng-container>
+  </tbody>
+</table>
